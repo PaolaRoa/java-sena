@@ -1,6 +1,7 @@
 package com.sena.inventory.brand;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table
@@ -8,7 +9,10 @@ public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank
     private String name;
+    @Column(columnDefinition = "Boolean default true")
+    private boolean status;
 
     public Brand() {
     }

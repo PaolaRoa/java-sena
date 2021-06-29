@@ -18,4 +18,15 @@ public class BrandService {
         return brandRepository.findAll();
     }
 
+    public Brand editBrand(Brand brand) {
+        boolean exists = brandRepository.existsById(brand.getId());
+        if(exists){
+            Brand brandInDB = brandRepository.findById(brand.getId()).get();
+            if(brandInDB != null){
+                brandInDB.setName(brand.getName());
+                return brandRepository.save(brandInDB);
+            }
+        }
+        return null;
+    }
 }

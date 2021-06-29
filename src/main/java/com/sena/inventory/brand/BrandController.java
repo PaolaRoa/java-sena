@@ -1,9 +1,7 @@
 package com.sena.inventory.brand;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +18,10 @@ public class BrandController {
     @GetMapping
     public List<Brand> getBrands(){
         return brandService.getBrands();
+    }
+
+    @PutMapping
+    public Brand editBrand(@RequestBody Brand brand){
+        return brandService.editBrand(brand);
     }
 }
